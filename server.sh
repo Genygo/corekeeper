@@ -19,12 +19,6 @@ function kill_corekeeperserver {
 cd game
 trap kill_corekeeperserver EXIT
 
-if ! (dpkg -l xvfb >/dev/null) ; then
-    echo "Installing xvfb dependency..."
-    sleep 1
-    sudo apt-get update -yy && sudo apt-get install xvfb -yy
-fi
-
 set -m
 
 rm -f /tmp/.X99-lock
@@ -32,7 +26,7 @@ rm -f /tmp/.X99-lock
 Xvfb :99 -screen 0 1x1x24 -nolisten tcp &
 xvfbpid=$!
 
-
+ln -sf /proc/1/fd/1 ./CoreKeeperServerLog.txt
 chmod +x ./CoreKeeperServer
 gameID=$(cat GameID.txt)
 
