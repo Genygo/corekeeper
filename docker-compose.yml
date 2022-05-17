@@ -1,0 +1,7 @@
+version: "3"
+
+services: 
+  corekeeper: 
+    image: genygo/corekeeper
+    volumes: 
+      - ./corekeeper:/corekeeper/game
