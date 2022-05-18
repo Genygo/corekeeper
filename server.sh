@@ -13,9 +13,6 @@ function kill_corekeeperserver {
         fi
 }
 
-/home/steam/steamcmd/steamcmd.sh +force_install_dir /corekeeper/game +login anonymous +app_update 1963720 +quit
-/home/steam/steamcmd/steamcmd.sh +force_install_dir /corekeeper/steamworks +login anonymous +app_update 1007 +quit
-
 cd game
 trap kill_corekeeperserver EXIT
 
